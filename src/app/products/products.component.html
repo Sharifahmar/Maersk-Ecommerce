@@ -1,19 +1,24 @@
-
 <div class="maincontent-area">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="latest-product">
                     <h2 class="section-title">Latest Products</h2>
-                    <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
-                        <nz-card-meta nzTitle="Europe Street beat" nzDescription="www.instagram.com"></nz-card-meta>
-                      </nz-card>
-                      <ng-template #coverTemplate>
-                        <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
-                      </ng-template>
+                    <div class="row">
+                        <div class="col-md-3" *ngFor="let product of products">
+                            <nz-card nzHoverable style="width:165px" [nzCover]="coverTemplate">
+                                <nz-card-meta nzTitle={{product.title}} nzDescription={{product.price}}>
+                                </nz-card-meta>
+                                <p>{{product.category}}</p>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                            </nz-card>
+                            <ng-template #coverTemplate>
+                                <img src={{product.image}} style="height: 190px;" />
+                            </ng-template>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div> <!-- End main content area -->
-

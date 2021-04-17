@@ -4,6 +4,8 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { NzCardModule } from 'ng-zorro-antd/card';
 
+
+
 @NgModule({
   declarations: [
     ProductsComponent
@@ -11,7 +13,7 @@ import { NzCardModule } from 'ng-zorro-antd/card';
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    NzCardModule
+    NzCardModule,
   ]
 })
 export class ProductsModule { }

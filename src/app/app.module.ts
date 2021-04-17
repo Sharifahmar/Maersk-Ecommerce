@@ -1,14 +1,21 @@
-import { CommonModule } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import en from '@angular/common/locales/en';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DefaultComponent } from './layout/default/default.component';
 import { FullWidthComponent } from './layout/full-width/full-width.component';
+
+
+registerLocaleData(en);
 
 
 
@@ -24,10 +31,12 @@ import { FullWidthComponent } from './layout/full-width/full-width.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgbModule
+    FormsModule,
+    BrowserAnimationsModule,
+    NzButtonModule
     
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
