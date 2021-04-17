@@ -8,7 +8,7 @@ import { Products } from '../model/generic-interfaces';
 })
 export class ProductsService {
 
-  private loginApi='https://fakestoreapi.com/products?limit=8'
+  private loginApi='https://fakestoreapi.com/products/category/electronics'
 
   constructor(private http:HttpClient) { }
 

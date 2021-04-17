@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NzButtonModule } from 'ng-zorro-antd/button';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,8 +31,7 @@ registerLocaleData(en);
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule,
-    NzButtonModule
+    BrowserAnimationsModule
     
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
