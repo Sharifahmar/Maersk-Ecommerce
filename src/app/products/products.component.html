@@ -26,11 +26,11 @@
                     <h2 class="section-title">Latest Products</h2>
                     <div class="row">
                         <div class="col-md-4 mb-4 d-flex justify-content-center" *ngFor="let product of products">
-                            <nz-card nzHoverable style="width:165px" [nzCover]="coverTemplate">
+                            <nz-card nzHoverable style="width:230px" [nzCover]="coverTemplate" [nzLoading]="loading">
                                 <nz-card-meta nzTitle={{product.title}} nzDescription={{product.price}}>
                                 </nz-card-meta>
                                 <p>{{product.category | uppercase}}</p>
-                                <button type="button" class="btn btn-primary">Add to Cart</button>
+                                <button type="button" class="btn btn-primary" (click)="onProductIndex(product)">Add to Cart</button>
                             </nz-card>
                             <ng-template #coverTemplate>
                                 <img src={{product.image}} style="height: 190px;" />

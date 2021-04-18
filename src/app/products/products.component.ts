@@ -8,6 +8,7 @@ import {
   filter
 } from "rxjs/operators";
 import { fromEvent } from 'rxjs';
+import { SharedDataService } from '../services/shared-data.service';
 
 @Component({
   selector: 'app-products',
@@ -17,21 +18,24 @@ import { fromEvent } from 'rxjs';
 })
 export class ProductsComponent implements OnInit {
 
-  products: any = [];
-  options: string[] = [];
-  searchArr: Products[] = [];
-  respArr: any = [];
-  selectedValue = null;
+  public products: any = [];
+  public options: string[] = [];
+  public searchArr: Products[] = [];
+  public respArr: any = [];
+  public selectedValue = null;
+  public loading = true;
+  public cartArr: Products[] = [];
 
   @ViewChild('prdSearchInput', { static: true }) prdSearchInput: ElementRef;
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService,private sharedDataService:SharedDataService) { }
 
   ngOnInit(): void {
 
     this.productsService.getProducts().subscribe(resp => {
       this.products = resp;
       this.respArr = resp;
+      this.loading=false;
 
     },
       error => {
@@ -70,7 +74,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onSearch(): void {
-    this.products = this.respArr.filter((e: { title: string; }) => e.title.toLowerCase() == (this.prdSearchInput.nativeElement.value.toLowerCase()));
+    this.products = this.respArr.filter((e:Products) => e.title.toLowerCase() == (this.prdSearchInput.nativeElement.value.toLowerCase()));
   }
 
   modelChangeFn(e): void {
@@ -79,6 +83,11 @@ export class ProductsComponent implements OnInit {
     } else {
       this.products = this.respArr.sort((a, b) => b.price - a.price);
     }
+  }
+
+  onProductIndex(selectIndex:Products):void{
+    this.cartArr.push(selectIndex);
+    this.sharedDataService.updateData(this.cartArr);
   }
 }
 
