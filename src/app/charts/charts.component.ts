@@ -12,12 +12,12 @@ import { ProductsService } from '../services/products.service';
 export class ChartsComponent implements OnInit {
 
   public products: any = [];
-  public pieChartDataArr:number[] = [];
+  public pieChartDataArr:number[] = [1,1,1,1];
   public pieChartOptions: ChartOptions = {
     responsive: true,
   };
   public pieChartLabels: Label[] = ['Electronics', 'Jewellery', 'Men Clothing', 'Women Clothing'];
-  public pieChartData: SingleDataSet = this.pieChartDataArr;
+  public pieChartData: SingleDataSet = [4,6,6,4];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
@@ -46,14 +46,14 @@ export class ChartsComponent implements OnInit {
           counterwClothing++;
         }
       });
-      
+      this.pieChartDataArr=[counterElectronics,counterJewellery,countermClothing,counterwClothing];
     },
       error => {
         alert('Something went wrong !!')
       }
 
     );
-    this.pieChartDataArr=[counterElectronics,counterJewellery,countermClothing,counterwClothing];
+  
 
   }
 
