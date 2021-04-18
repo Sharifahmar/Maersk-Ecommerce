@@ -20,7 +20,8 @@ export class ProductsComponent implements OnInit {
   products: any = [];
   options: string[] = [];
   searchArr: Products[] = [];
-  respArr:any = [];
+  respArr: any = [];
+  selectedValue = null;
 
   @ViewChild('prdSearchInput', { static: true }) prdSearchInput: ElementRef;
 
@@ -50,9 +51,10 @@ export class ProductsComponent implements OnInit {
           return true;
         } else {
           this.options = [];
-          this.products=this.respArr;
+          this.products = this.respArr;
           return false;
-        }})
+        }
+      })
 
       // Time in milliseconds between key events
       , debounceTime(1000)
@@ -67,8 +69,16 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  onSearch():void{
-    this.products = this.respArr.filter((e: { title: string; }) => e.title.toLowerCase()==(this.prdSearchInput.nativeElement.value.toLowerCase()));
+  onSearch(): void {
+    this.products = this.respArr.filter((e: { title: string; }) => e.title.toLowerCase() == (this.prdSearchInput.nativeElement.value.toLowerCase()));
+  }
+
+  modelChangeFn(e): void {
+    if (e == 1) {
+      this.products = this.respArr.sort((a, b) => a.price - b.price);
+    } else {
+      this.products = this.respArr.sort((a, b) => b.price - a.price);
+    }
   }
 }
 

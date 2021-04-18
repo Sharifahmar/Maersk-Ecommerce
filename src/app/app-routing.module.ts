@@ -14,7 +14,8 @@ const routes: Routes = [
     component: DefaultComponent,
     children: [
       { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-      { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) }
+      { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
+      { path: 'charts', loadChildren: () => import('./charts/charts.module').then(m => m.ChartsNgModule) }
     ]
   },
   {

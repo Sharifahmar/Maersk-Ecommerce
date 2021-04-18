@@ -5,6 +5,8 @@ import { ProductsComponent } from './products.component';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
 import { FormsModule } from '@angular/forms';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     ProductsRoutingModule,
     NzCardModule,
     NzAutocompleteModule,
-    FormsModule
+    FormsModule,
+    NzSelectModule
   ]
 })
 export class ProductsModule { }
