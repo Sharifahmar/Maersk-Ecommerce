@@ -4,7 +4,7 @@ import { AuthGuard } from '../guard/auth.guard';
 
 import { ChartsComponent } from './charts.component';
 
-const routes: Routes = [{ path: '', component: ChartsComponent,/*canActivate: [AuthGuard]*/ }];
+const routes: Routes = [{ path: '', component: ChartsComponent, canActivate: [AuthGuard] }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
