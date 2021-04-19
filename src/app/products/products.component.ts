@@ -74,7 +74,9 @@ export class ProductsComponent implements OnInit {
   }
 
   onSearch(): void {
-    this.products = this.respArr.filter((e:Products) => e.title.toLowerCase() == (this.prdSearchInput.nativeElement.value.toLowerCase()));
+    if(this.prdSearchInput.nativeElement.value !== ""){
+      this.products = this.respArr.filter((e:Products) => e.title.toLowerCase() == (this.prdSearchInput.nativeElement.value.toLowerCase()));
+    }
   }
 
   modelChangeFn(e): void {
@@ -86,8 +88,8 @@ export class ProductsComponent implements OnInit {
   }
 
   onProductIndex(selectIndex:Products):void{
-    this.cartArr.push(selectIndex);
-    this.sharedDataService.updateData(this.cartArr);
+    // this.cartArr.push(selectIndex);
+    this.sharedDataService.updateData(selectIndex);
   }
 }
 

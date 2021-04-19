@@ -10,13 +10,12 @@
                                     <th class="product-thumbnail"></th>
                                     <th class="product-name">Product</th>
                                     <th class="product-price">Price</th>
-                                    <th class="product-quantity">Quantity</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="cart_item" *ngFor="let item of cartSharedArr">
                                     <td class="product-remove">
-                                        <a title="Remove this item" class="remove" href="#">×</a>
+                                        <a title="Remove this item" class="remove" (click)="removeItems(item)">×</a>
                                     </td>
 
                                     <td class="product-thumbnail">
@@ -29,15 +28,6 @@
 
                                     <td class="product-price">
                                         <span class="amount">{{item.price}}</span>
-                                    </td>
-
-                                    <td class="product-quantity">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" class="minus mr-2" value="-">
-                                            <input type="number" size="4" class="input-text qty text" title="Qty"
-                                                value="1" min="0" step="1">
-                                            <input type="button" class="plus ml-2" value="+">
-                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -65,7 +55,7 @@
                                 <tbody>
                                     <tr class="cart-subtotal">
                                         <th>Cart Subtotal</th>
-                                        <td><span class="amount">£15.00</span></td>
+                                        <td><span class="amount">{{'RS '+totalPrice}}</span></td>
                                     </tr>
 
                                     <tr class="shipping">
@@ -75,7 +65,7 @@
 
                                     <tr class="order-total">
                                         <th>Order Total</th>
-                                        <td><strong><span class="amount">£15.00</span></strong> </td>
+                                        <td><strong><span class="amount">{{'RS '+totalPrice}}</span></strong> </td>
                                     </tr>
                                 </tbody>
                             </table>

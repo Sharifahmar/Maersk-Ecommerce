@@ -12,7 +12,7 @@ export class SharedDataService {
 
   constructor() { }
 
-  updateData(product: Products[]) {
+  updateData(product: Products) {
     this.messageSource.next(product);
   }
 

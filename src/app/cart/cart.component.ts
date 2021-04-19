@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Products } from '../model/generic-interfaces';
+import { CartService } from '../services/cart.service';
 import { SharedDataService } from '../services/shared-data.service';
 
 @Component({
@@ -9,13 +10,22 @@ import { SharedDataService } from '../services/shared-data.service';
 })
 export class CartComponent implements OnInit {
 
-  public cartSharedArr: Products[] = [];
-
-  constructor(private sharedDataService:SharedDataService) { }
+  public cartSharedArr = [];
+  public totalPrice:number = 0;
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.sharedDataService.currentData.subscribe(cartData => this.cartSharedArr = cartData);
-    console.log("object"+this.cartSharedArr);
+
+    if (this.cartService.getItems().length !== 0) {
+      this.cartSharedArr = this.cartService.getItems();
+    }
+
+    this.totalPrice = this.cartSharedArr.reduce((x,y)=>x+y.price,0);
+  }
+
+  removeItems(e):void{
+  this.cartSharedArr.splice(e.id, 1);
+  this.totalPrice = this.cartSharedArr.reduce((x,y)=>x+y.price,0);
   }
 
 }

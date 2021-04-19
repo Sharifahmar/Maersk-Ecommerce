@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Sort Products" [(ngModel)]="selectedValue" (ngModelChange)="modelChangeFn($event)"> 
+                        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Sort Products" [(ngModel)]="selectedValue" (ngModelChange)="modelChangeFn($event)" nzSize="large" class="float-right"> 
                             <nz-option nzLabel="Low-High" nzValue="1"></nz-option>
                             <nz-option nzLabel="High-Low" nzValue="2"></nz-option>
                           </nz-select>
