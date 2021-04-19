@@ -17,7 +17,7 @@ export class ChartsComponent implements OnInit {
     responsive: true,
   };
   public pieChartLabels: Label[] = ['Electronics', 'Jewellery', 'Men Clothing', 'Women Clothing'];
-  public pieChartData: SingleDataSet = [4,6,6,4];
+  public pieChartData: SingleDataSet = [0,0,0,0];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
@@ -46,7 +46,7 @@ export class ChartsComponent implements OnInit {
           counterwClothing++;
         }
       });
-      this.pieChartDataArr=[counterElectronics,counterJewellery,countermClothing,counterwClothing];
+      this.pieChartData=[counterElectronics,counterJewellery,countermClothing,counterwClothing];
     },
       error => {
         alert('Something went wrong !!')
