@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
+    sessionStorage.clear();
     this.loginForm = new FormGroup({
       'email': new FormControl("", [Validators.required, Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
       'password': new FormControl("", [Validators.required])
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.loginService.getToken(this.loginForm.value).subscribe(resp => {
       sessionStorage.setItem('token', resp.token);
-      this.router.navigate(['/products']);
+      this.router.navigate(['/home']);
     },
       error => {
         alert('Something went wrong !!')
