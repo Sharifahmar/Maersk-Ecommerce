@@ -13,9 +13,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="cart_item" *ngFor="let item of cartSharedArr">
+                                <tr class="cart_item" *ngFor="let item of cartSharedArr;index as i">
                                     <td class="product-remove">
-                                        <a title="Remove this item" class="remove" (click)="removeItems(item)">×</a>
+                                        <a title="Remove this item" class="remove" (click)="removeItems(i)">×</a>
                                     </td>
 
                                     <td class="product-thumbnail">

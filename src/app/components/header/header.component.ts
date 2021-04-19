@@ -9,7 +9,7 @@ import { SharedDataService } from '../../services/shared-data.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit,AfterViewChecked {
+export class HeaderComponent implements OnInit {
 
   public cartSharedData: Products[] = [];
   public cartCount = 0;

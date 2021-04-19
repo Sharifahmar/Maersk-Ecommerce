@@ -11,7 +11,7 @@ import { SharedDataService } from '../services/shared-data.service';
 export class CartComponent implements OnInit {
 
   public cartSharedArr = [];
-  public totalPrice:number = 0;
+  public totalPrice: number = 0;
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -20,12 +20,12 @@ export class CartComponent implements OnInit {
       this.cartSharedArr = this.cartService.getItems();
     }
 
-    this.totalPrice = this.cartSharedArr.reduce((x,y)=>x+y.price,0);
+    this.totalPrice = this.cartSharedArr.reduce((x, y) => x + y.price, 0);
   }
 
-  removeItems(e):void{
-  this.cartSharedArr.splice(e.id, 1);
-  this.totalPrice = this.cartSharedArr.reduce((x,y)=>x+y.price,0);
+  removeItems(index): void {
+    this.cartSharedArr.splice(index, 1);
+    this.totalPrice = this.cartSharedArr.reduce((x, y) => x + y.price, 0);
   }
 
 }

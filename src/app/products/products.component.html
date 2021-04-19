@@ -29,9 +29,9 @@
                             <nz-card nzHoverable style="width:230px" [nzCover]="coverTemplate" [nzLoading]="loading">
                                 <nz-card-meta nzTitle={{product.title}} nzDescription="{{'RS ' + product.price}}">
                                 </nz-card-meta>
-                                <p>{{product.category | uppercase}}</p>
+                                <p class="font-weight-normal">{{product.category | titlecase }}</p>
                                 <div class="text-center">
-                                <button type="button" class="btn btn-primary" (click)="onProductIndex(product)">Add to Cart</button>
+                                <button type="button" class="btn btn-outline-info" (click)="onProductIndex(product)">Add to Cart</button>
                             </div>
                             </nz-card>
                             <ng-template #coverTemplate>
